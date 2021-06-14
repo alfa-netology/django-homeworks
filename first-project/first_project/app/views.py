@@ -1,6 +1,5 @@
-import pathlib
-from time import gmtime, strftime
-from django.http import HttpResponse
+from datetime import datetime
+import os
 
 from django.shortcuts import render, reverse
 
@@ -26,15 +25,22 @@ def home_view(request):
 def time_view(request):
     # обратите внимание – здесь HTML шаблона нет, 
     # возвращается просто текст
-    current_time = strftime("%H:%M:%S", gmtime())
-    msg = f'Текущее время: {current_time}'
-    return HttpResponse(msg)
+    template_name = 'app/time.html'
+    current_time = datetime.strftime(datetime.now(), "%H:%M:%S")
 
+    context = {
+        'time': current_time
+    }
+    return render(request, template_name, context)
 
 def workdir_view(request):
     # по аналогии с `time_view`, напишите код,
     # который возвращает список файлов в рабочей 
     # директории
-    directory = pathlib.Path('.')
-    msg = [f'{file}<br>' for file in directory.iterdir()]
-    return HttpResponse(msg)
+    template_name = 'app/files.html'
+
+    context = {
+        'dir': os.path.basename(os.getcwd()),
+        'files': os.listdir(os.getcwd())
+    }
+    return render(request, template_name, context)
