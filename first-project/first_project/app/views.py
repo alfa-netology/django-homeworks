@@ -38,5 +38,3 @@ def workdir_view(request):
     directory = pathlib.Path('.')
     msg = [f'{file}<br>' for file in directory.iterdir()]
     return HttpResponse(msg)
-
-    # raise NotImplemented - не понял, зачем?
