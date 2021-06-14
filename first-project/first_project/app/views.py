@@ -1,8 +1,8 @@
 import pathlib
-
-from django.http import HttpResponse
-from django.shortcuts import render, reverse
 from time import gmtime, strftime
+from django.http import HttpResponse
+
+from django.shortcuts import render, reverse
 
 
 def home_view(request):
@@ -36,6 +36,7 @@ def workdir_view(request):
     # который возвращает список файлов в рабочей 
     # директории
     directory = pathlib.Path('.')
-    return HttpResponse([f'{file}<br>' for file in directory.iterdir()])
+    msg = [f'{file}<br>' for file in directory.iterdir()]
+    return HttpResponse(msg)
 
-    # raise NotImplemented
+    # raise NotImplemented - не понял, зачем?
