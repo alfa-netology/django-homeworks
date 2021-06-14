@@ -31,9 +31,11 @@ def time_view(request):
 
 def workdir_view(request):
     template_name = 'app/files.html'
+    work_dir = os.path.basename(os.getcwd())
+    files = os.listdir(os.getcwd())
 
-    context = {
-        'dir': os.path.basename(os.getcwd()),
-        'files': os.listdir(os.getcwd())
-    }
+    # насколько правильно объявлять context таким образом?
+    context = dict(dir=work_dir, files=files)
+    # мне проще воспримать конструкцию dict()
+
     return render(request, template_name, context)
