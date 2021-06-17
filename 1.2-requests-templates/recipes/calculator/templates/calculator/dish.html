@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dish }}</title>
+</head>
+<body>
+    {% if not has_dish %}
+        <h3>{{ data }}</h3>
+    {% endif %}
+
+    {% if has_dish and not has_servings %}
+        <h3>for zero person zero food</h3>
+    {% endif %}
+
+    {% if has_dish and has_servings %}
+        <h3>{{ dish }} ingredients for {{ servings }} person:</h3>
+            {% for name, quantity in data.items %}
+                <p>{{ name }}: {{ quantity }}</p>
+            {% endfor %}
+    {% endif %}
+
+<button><a href="/" style="text-decoration: none;">back</a></button>
+</body>
+</html>
