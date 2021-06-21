@@ -12,7 +12,6 @@ def catalog(request):
     return render(request, template, context)
 
 def page(request, date):
-
     prev_page = Book.objects.filter(pub_date__lt=date).order_by('-pub_date').first()
     next_page = Book.objects.filter(pub_date__gt=date).order_by('pub_date').first()
 
@@ -22,11 +21,9 @@ def page(request, date):
     template = 'books/books_details.html'
     books = Book.objects.filter(pub_date=date)
 
-    print(prev_page)
-
     context = {
         'books': books,
-        'next_page': next_page,
         'prev_page': prev_page,
+        'next_page': next_page,
     }
     return render(request, template, context)
