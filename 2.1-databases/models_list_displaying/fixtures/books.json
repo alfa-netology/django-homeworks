@@ -3,8 +3,8 @@
     "model": "books.book",
     "pk": 1,
     "fields": {
-      "name": "Война и мир",
-      "author": "Ф.Д. Достоевский",
+      "name": "Убик",
+      "author": "Филип Дик",
       "pub_date": "2018-02-27"
     }
   },
@@ -15,6 +15,60 @@
       "name": "1984",
       "author": "Джордж Оруэл",
       "pub_date": "2016-12-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "name": "451 градус по Фаренгейту",
+      "author": "Рэй Брэдбери",
+      "pub_date": "2019-12-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "name": "Футурологический конгресс",
+      "author": "Станислав Лем",
+      "pub_date": "2018-08-25"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "name": "О дивный новый мир",
+      "author": "Олдос Хаксли",
+      "pub_date": "2010-10-10"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "name": "Мы",
+      "author": "Евгений Замятин",
+      "pub_date": "2020-11-05"
+    }
+  },
+   {
+    "model": "books.book",
+    "pk": 7,
+    "fields": {
+      "name": "Гиперион",
+      "author": "Дэн Симмонс",
+      "pub_date": "2021-01-05"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 8,
+    "fields": {
+      "name": "Дюна",
+      "author": "Фрэнк Герберт",
+      "pub_date": "2016-02-05"
     }
   }
 ]
