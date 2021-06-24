@@ -1,14 +1,23 @@
 from django.shortcuts import render
 
-from articles.models import Article
+from articles.models import Article, Scope
 
 
 def articles_list(request):
     template = 'articles/news.html'
-    context = {}
+    articles = list()
 
-    # используйте этот параметр для упорядочивания результатов
-    # https://docs.djangoproject.com/en/3.1/ref/models/querysets/#django.db.models.query.QuerySet.order_by
-    ordering = '-published_at'
+    data = Article.objects.all().order_by('-published_at')
+    for item in data:        
+        scope = Scope.objects.filter(article=item).all().order_by('-is_main', 'tag')
 
+        articles.append({
+           'title': item.title,
+           'text': item.text,
+           'image': item.image,
+           'scope': scope,
+        })
+
+    context = {'articles': articles}
+    
     return render(request, template, context)
