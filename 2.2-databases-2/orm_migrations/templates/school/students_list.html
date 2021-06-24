@@ -6,13 +6,14 @@
 <div class="row">
   <ul>
   {% for item in object_list %}
-  <li><p class="my-1 text-danger">{{ item.student.name }} {{ item.student.group }}</p>
+  <li>
+      <p class="my-1 text-danger">{{ item.student.name }} {{ item.student.group }}</p>
       <p class="my-0 text-primary">Учителя:</p>
         {% for teacher in item.teachers.all %}
             <p class="my-0">{{ teacher.name }} - {{ teacher.subject }}</p>
         {% endfor %}
-  {% endfor %}
   </li>
+  {% endfor %}
   </ul>
 </div>
 {% endblock %}
