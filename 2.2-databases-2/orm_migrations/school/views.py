@@ -5,7 +5,7 @@ from .models import Student
 
 def students_list(request):
     template = 'school/students_list.html'
-    students = Student.objects.order_by('group').prefetch_related('teacher').all()
+    students = Student.objects.order_by('group', 'name').prefetch_related('teacher').all()
 
     object_list = list()
 
