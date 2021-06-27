@@ -1,28 +1,32 @@
 from django.db import models
 
 
-class Project(models.Model):
+class TimestampFields(models.Model):
+    """ базовый класс """
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class Project(TimestampFields):
     """Объект на котором проводят измерения."""
 
     name = models.TextField()
     latitude = models.FloatField()
     longitude = models.FloatField()
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
+
+    def __str__(self):
+        return self.name
 
 
-class Measurement(models.Model):
+class Measurement(TimestampFields):
     """Измерение температуры на объекте."""
 
     value = models.FloatField()
+    image = models.ImageField(null=True, blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
+
+    def __str__(self):
+        return f"{self.value} - {self.project}"
