@@ -5,6 +5,14 @@ from django.db import models
 class Product(models.Model):
     title = models.CharField(max_length=60, unique=True)
     description = models.TextField(null=True, blank=True)
+    objects = models.Manager()
+
+    class Meta:
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
+
+    def __str__(self):
+        return self.title
 
 
 class Stock(models.Model):
@@ -14,6 +22,14 @@ class Stock(models.Model):
         through='StockProduct',
         related_name='stocks',
     )
+    objects = models.Manager()
+
+    class Meta:
+        verbose_name = 'Склад'
+        verbose_name_plural = 'Склады'
+
+    def __str__(self):
+        return self.address
 
 
 class StockProduct(models.Model):
