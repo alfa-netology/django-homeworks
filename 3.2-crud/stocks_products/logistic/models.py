@@ -5,7 +5,6 @@ from django.db import models
 class Product(models.Model):
     title = models.CharField(max_length=60, unique=True)
     description = models.TextField(null=True, blank=True)
-    objects = models.Manager()
 
     class Meta:
         verbose_name = 'Продукт'
@@ -22,7 +21,6 @@ class Stock(models.Model):
         through='StockProduct',
         related_name='stocks',
     )
-    objects = models.Manager()
 
     class Meta:
         verbose_name = 'Склад'

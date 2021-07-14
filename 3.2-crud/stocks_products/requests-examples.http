@@ -1,3 +1,8 @@
+# получение продуктов
+GET http://localhost:8000/api/v1/products/
+Content-Type: application/json
+###
+
 # создание продукта
 POST http://localhost:8000/api/v1/products/
 Content-Type: application/json
@@ -6,13 +11,6 @@ Content-Type: application/json
   "title": "Мангустин",
   "description": "Экзотический фрукт из Тайланда"
 }
-
-###
-
-# получение продуктов
-GET http://localhost:8000/api/v1/products/
-Content-Type: application/json
-
 ###
 
 # обновление продукта
@@ -22,24 +20,16 @@ Content-Type: application/json
 {
   "description": "Самые сочные и ароматные помидорки"
 }
-
 ###
 
 # удаление продукта
 DELETE http://localhost:8000/api/v1/products/1/
 Content-Type: application/json
-
 ###
 
 # поиск продуктов по названию и описанию
 GET http://localhost:8000/api/v1/products/?search=мангустин
 Content-Type: application/json
-
-###
-
-GET http://localhost:8000/api/v1/products/?search=мангустин
-Content-Type: application/json
-
 ###
 
 # создание склада
@@ -47,7 +37,7 @@ POST http://localhost:8000/api/v1/stocks/
 Content-Type: application/json
 
 {
-  "address": "Подпольный рынок, Darknet",
+  "address": "Центральный рынок, Спб",
   "positions": [
     {
       "product": 2,
@@ -65,7 +55,7 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH http://localhost:8000/api/v1/stocks/4/
 Content-Type: application/json
 
 {
@@ -86,5 +76,5 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET http://localhost:8000/api/v1/stocks/?products=2
+GET http://localhost:8000/api/v1/stocks/?products=3
 Content-Type: application/json
