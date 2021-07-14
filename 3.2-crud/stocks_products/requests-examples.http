@@ -76,5 +76,5 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET http://localhost:8000/api/v1/stocks/?products=помид
+GET http://localhost:8000/api/v1/stocks/?products=2
 Content-Type: application/json
