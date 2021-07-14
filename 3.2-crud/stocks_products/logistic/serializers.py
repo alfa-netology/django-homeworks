@@ -12,7 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class ProductPositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = StockProduct
-        fields = ['product', 'quantity', 'price']
+        fields = ('product', 'quantity', 'price',)
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class StockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
-        exclude = ['products']
+        exclude = ('products',)
 
     # настройте сериализатор для склада
 

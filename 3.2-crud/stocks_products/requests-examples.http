@@ -37,7 +37,7 @@ POST http://localhost:8000/api/v1/stocks/
 Content-Type: application/json
 
 {
-  "address": "Центральный рынок, Спб",
+  "address": "Центральный рынок, Одесса",
   "positions": [
     {
       "product": 2,
@@ -76,5 +76,5 @@ Content-Type: application/json
 ###
 
 # поиск складов, где есть определенный продукт
-GET http://localhost:8000/api/v1/stocks/?products=3
+GET http://localhost:8000/api/v1/stocks/?products=помид
 Content-Type: application/json
