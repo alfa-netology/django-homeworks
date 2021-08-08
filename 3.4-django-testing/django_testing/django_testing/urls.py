@@ -18,6 +18,8 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from students.views import CoursesViewSet
+# from students.views import test_view
+
 
 router = DefaultRouter()
 router.register("courses", CoursesViewSet, basename="courses")
